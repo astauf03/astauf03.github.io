@@ -1,4 +1,5 @@
 ---
+import Navigation from '../components/Navigation.astro';
 import '../styles/global.css';
 
 const pageTitle = "Experience";
@@ -14,10 +15,8 @@ const pageTitle = "Experience";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/experience/">Experience</a>
-        <a href="/portfolio/">Portfolio</a>
+        
+        <Navigation />
 
 		<h1>{pageTitle}</h1>
         <h2> ... and my new Astro site (that will be my portfolio)</h2>
