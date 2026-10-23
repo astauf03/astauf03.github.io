@@ -1,38 +1,7 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = "Experience";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-        
-        <Header />
-
-		<h1>{pageTitle}</h1>
-        <h2> ... and my new Astro site (that will be my portfolio)</h2>
-
-        <p>I am working through the Astro documentation to build my portfolio. This is the second page of the website.</p>
-
-        <p> This site will update as I complete more of the tutorial. </p>
-        <ul>
-            <li><a href="/posts/post01/">Post 01</a></li>
-            <li><a href="/posts/post02/">Post 02</a></li>
-            <li><a href="/posts/post03/">Post 03</a></li>
-        </ul>
-        <Footer />
-        <script>
-			import "../scripts/menu.js"
-		</script>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle} >
+</BaseLayout>
