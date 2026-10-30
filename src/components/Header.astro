@@ -4,8 +4,8 @@ import Navigation from './Navigation.astro';
 import ThemeIcon from './ThemeIcon.astro';
 ---
 <header>
-  <nav>
-    <div>
+  <nav class="container">
+    <div class="header-bar">
       <ThemeIcon />
       <Menu />
     </div>
@@ -14,7 +14,7 @@ import ThemeIcon from './ThemeIcon.astro';
 </header>
 
 <style>
-  div {
+  .header-bar {
     display: flex;
     justify-content: space-between;
   }
