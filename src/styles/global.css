@@ -28,14 +28,35 @@ body {
     padding-inline: 1rem;
 }
 
+.prose {                /*This controls the width of the text-heavy sections like About and Other*/
+    max-width: 65ch;
+    line-height: 1.7;
+    display: flow-root; /*for floating headshot integration*/
+}
+
 * {
     box-sizing: border-box;
+}
+
+h1,
+h2 {
+    font-family: var(--font-heading);
 }
 
 h1 {
     margin: 1rem 0;
     font-size: 2.5rem;
     color: var(--text);
+    font-weight: 690;
+}
+
+h2 {      /*This will probably change at somepoint.. not sure if I will like it with the cards..*/
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 1.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
 }
 
 /*nav styles */
@@ -53,6 +74,7 @@ h1 {
     width: 100%;
     display: none;
     margin: 0;
+    font-family: var(--font-heading);
 }
 
 .nav-links a {
