@@ -154,7 +154,7 @@ h3{
 
 /*footer is going to be commented because I am not sure if I should keep it here or in the Footer component*/
 
-/*
+
 footer {
     padding-block:0.5rem;
     background-color: var(--text);
@@ -166,10 +166,10 @@ footer a {
     color: var(--background);
 }
 
-footera:hover {
+footer a:hover {
     color: var(--highlight);
 }
-*/
+
 
 .card-grid {
     display: grid;
@@ -216,7 +216,6 @@ footera:hover {
     background-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Not entirely sure where this comes into play against old scss.. so it is commented out for now. 
 .card-label,
 .card-summary {
     display: -webkit-box;
@@ -251,7 +250,7 @@ footera:hover {
 }
 
 
-*/
+
 
 .card-link--feature {
     grid-column: 1 / -1;
@@ -284,7 +283,13 @@ footera:hover {
 }
 
 
-
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
 
 
 
