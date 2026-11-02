@@ -1,4 +1,19 @@
 ---
-const { title, url } = Astro.props;
+const { url, title, summary, thumbnail, alt = "", feature = false } = Astro.props;
+const external = url.startsWith("http");
 ---
-<li><a href={url}>{title}</a></li>
+<a
+  class:list={["card-link", { "card-link--feature": feature }]}
+  href={url}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  {thumbnail && (
+    <span class="card-thumbnail-wrapper">
+      <img class="card-thumbnail" src={thumbnail} alt={alt} loading="lazy" />
+    </span>
+  )}
+  <h3 class="card-label">{title}</h3>
+  {summary && <p class="card-summary">{summary}</p>}
+  <span class="card-arrow" aria-hidden="true">→</span>
+</a>

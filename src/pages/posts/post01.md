@@ -1,18 +1,16 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'My First Blog Post'
-pubDate: 2026-10-22
-description: 'This is the first post of my new Astro blog.'
-author: 'Astro Learner'
+title: 'Geography of Healthcare Access in South Africa'
+pubDate: Jan 2026 - Present
+description: 'A continued research project from the Urban Spatial Analytics practicum.'
+author: 'Distributed AI Research Institute; Alex Stauffer; Tess Vu; Joey Cahill; Jill Kalman'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["astro", "blogging", "learning in public"]
+tags: ["geospatial", "design", "learning in public"]
 ---
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
-
-## What I've accomplished
+## Overview
 
 1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
 
@@ -20,6 +18,13 @@ Welcome to my _new blog_ about learning Astro! Here, I will share my learning jo
 
 3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
 
-## What's next
+## Methods
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+
+
+## Outcomes
+
+**GitHub:**
+- Click [here](https://github.com/tess-vu/south-africa-healthcare) for more information on data layers, schema, and tech stack information. 
+
+- [Navigate to our app](https://github.com/astauf03/dair-pharmacy-app)
