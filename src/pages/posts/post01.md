@@ -1,16 +1,18 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Studying Pharmacy Deserts in South Africa - A Partnership between DAIR and UPenn School of Design'
+title: 'Studying Pharmacy Deserts in South Africa'
 pubDate: Jan 2026 - Present
-description: 'To what extent do patterns of pharmacy access correlate with historical geographies of apartheid? '
+description: 'A Partnership between DAIR and the University of Pennsylvania Weitzman School of Design'
 author: 'Nyalleng Moorsi, Raesejstie Sesafi, Alex Stauffer, Tess Vu, Joey Cahill, Jill Kalman'
 image:
     src: /images/projects/DAIR-header.png
-    alt: 'The Astro logo on a dark background with a pink glow.'
+    alt: 'Screenshot from the DAIR/UPENN public application.'
 tags: ["geospatial analysis", "design", "healthcare access"]
 ---
 
 ## Project Summary
+
+### To what extent do patterns of pharmacy access correlate with historical geographies of apartheid? 
 
 In 2024, 30 years after the end of apartheid, the government of South Africa signed into law a National Health Insurance (NHI) Act of 2024. The NHI was developed to extend healthcare coverage to uninsured South Africans who could only receive care at often overcrowded public health facilities.  
 

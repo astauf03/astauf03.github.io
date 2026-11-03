@@ -1,5 +1,5 @@
 ---
-const { url, title, summary, thumbnail, alt = "", feature = false } = Astro.props;
+const { url, title, summary, image, alt = "", feature = false } = Astro.props;
 const external = url.startsWith("http");
 ---
 <a
@@ -8,9 +8,9 @@ const external = url.startsWith("http");
   target={external ? "_blank" : undefined}
   rel={external ? "noopener noreferrer" : undefined}
 >
-  {thumbnail && (
-    <span class="card-thumbnail-wrapper">
-      <img class="card-thumbnail" src={thumbnail} alt={alt} loading="lazy" />
+  {image && (
+    <span class="card-image-wrapper">
+      <img class="card-image" src={image.src} alt={alt} />
     </span>
   )}
   <h3 class="card-label">{title}</h3>

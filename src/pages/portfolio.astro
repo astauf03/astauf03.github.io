@@ -6,6 +6,6 @@ const pageTitle = "Portfolio";
 ---
 <BaseLayout pageTitle={pageTitle} >
     <div class="card-grid">
-        {allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+        {allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} image={post.frontmatter.image} alt={post.frontmatter.image.alt} />)}
     </div>
 </BaseLayout>

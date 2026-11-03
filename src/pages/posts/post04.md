@@ -1,12 +1,35 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: My Fourth Blog Post
-author: Astro Learner
-description: "This post will show up on its own!"
+title: Predicting Drunk Driving Crashes in Philadelphia
+author: Alex Stauffer, Jun Luu, Tessa Vu
+description: "Logistic Regression Analysis"
 image:
     url: "https://docs.astro.build/default-og-image.png"
     alt: "The word astro against an illustration of planets and stars."
-pubDate: 2022-08-08
-tags: ["astro", "successes", "blogging"]
+pubDate: Fall 2025
+tags: ["data analysis", "musa 5000: statistical and data mining methods"]
 ---
-This post should show up with my other blog posts, because `import.meta.glob()` is returning a list of all my posts in order to create my list.
+## Project Summary
+
+This project uses logistic regression to explore traffic crash data from Philadelphia covering 2008 through 2012 to investigate the relationship between various crash characteristics, driver behaviors, and 
+neighborhood-level factors with the likelihood of alcohol involvement. 
+
+The predictors in our model included:
+- **FATAL_OR_M**: whether the crash resulted in a fatality or major injury 
+- **OVERTURNED**: whether the crash involved an overturned vehicle 
+- **CELL_PHONE**: whether the driver was using a cell phone 
+- **SPEEDING**: whether the crash involved speeding 
+- **AGGRESSIVE**: whether the crash involved aggressive driving 
+- **DRIVER1617**: whether at least one driver was aged 16-17 
+- **DRIVER65PLUS**: whether at least one driver was aged 65 or older 
+- **PCTBACHMOR**: percentage of residents with a bachelor's degree or higher in the crash 
+location's census block group 
+- **MEDHHINC**: median household income in the crash location's census block group
+
+## Outcomes
+
+Crashes involving **SPEEDING** are 4.66 times more likely to involve drunk driving, and our most strongest predictor. Crashes involving **OVERTURNED** vehicles are 2.53 times more likely to be associated with drunk driving. We found that **CELL_PHONE** and **PCTBACHMOR** were not associated with drunk driving incidents, as their p-values were p = 0.88 and p = 0.77 respectively. 
+
+**Markdown**: Read our code here
+
+**Paper**: Open to read paper 
