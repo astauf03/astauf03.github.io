@@ -152,7 +152,7 @@ h3{
     color:var(--text);
 }
 
-/*footer is going to be commented because I am not sure if I should keep it here or in the Footer component*/
+/*footer is going to be commented because I am not sure if I should keep it here or in the Footer component
 
 
 footer {
@@ -169,7 +169,7 @@ footer a {
 footer a:hover {
     color: var(--highlight);
 }
-
+*/
 
 .card-grid {
     display: grid;

@@ -5,7 +5,7 @@ const allPosts = Object.values(import.meta.glob('./posts/*.md', {eager: true}));
 const pageTitle = "Portfolio";
 ---
 <BaseLayout pageTitle={pageTitle} >
-    <ul class="card-grid">
+    <div class="card-grid">
         {allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
-    </ul>
+    </div>
 </BaseLayout>

@@ -1,25 +1,26 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Geography of Healthcare Access in South Africa'
+title: 'Studying Pharmacy Deserts in South Africa - A Partnership between DAIR and UPenn School of Design'
 pubDate: Jan 2026 - Present
-description: 'A continued research project from the Urban Spatial Analytics practicum.'
-author: 'Distributed AI Research Institute; Alex Stauffer; Tess Vu; Joey Cahill; Jill Kalman'
+description: 'To what extent do patterns of pharmacy access correlate with historical geographies of apartheid? '
+author: 'Nyalleng Moorsi, Raesejstie Sesafi, Alex Stauffer, Tess Vu, Joey Cahill, Jill Kalman'
 image:
-    url: 'https://docs.astro.build/assets/rose.webp'
+    src: /images/projects/DAIR-header.png
     alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["geospatial", "design", "learning in public"]
+tags: ["geospatial analysis", "design", "healthcare access"]
 ---
 
-## Overview
+## Project Summary
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
+In 2024, 30 years after the end of apartheid, the government of South Africa signed into law a National Health Insurance (NHI) Act of 2024. The NHI was developed to extend healthcare coverage to uninsured South Africans who could only receive care at often overcrowded public health facilities.  
 
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
+The Act created a public fund to subsidize care and medicines, with significant implications for people in townships and non-wealthy areas. However, there is no official open database for pharmacies in South Africa, creating critical data gaps for researchers and policy makers who wish to understand medication access. 
 
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+While the NHI Act expands financial access to pharmacies, it is unclear if it will address the spatial inequalities that ultimately determine whether people can reach the pharmacies. 
 
-## Methods
+Building off of DAIR's previous dataset creation [work](https://dair-institute.org/projects/impacts-of-spatial-apartheid/), this project develops additional datasets and analytical frameworks for studying persistent spatial inequalities related to medication and pharmacy access.
 
+We begin this work with an analysis of access in two of the most populous provinces in the country - Gauteng and KwaZulu-Natal.
 
 
 ## Outcomes

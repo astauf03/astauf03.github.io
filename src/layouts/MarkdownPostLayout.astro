@@ -8,7 +8,7 @@ const { frontmatter } = Astro.props;
 
   <p>Collaborators: {frontmatter.author}</p>
 
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  <img src={frontmatter.image.src} width="1000" alt={frontmatter.image.alt} />
 
   <div class="tags">
     {frontmatter.tags.map((tag: string) => (
@@ -20,7 +20,7 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 <style>
   a {
-    color: #00539F;
+    color: var(--accent);
   }
 
   .tags {
@@ -30,10 +30,18 @@ const { frontmatter } = Astro.props;
 
   .tag {
     margin: 0.25em;
-    border: dotted 1px #a1a1a1;
+    border: dotted 1px var(--accent);
     border-radius: .5em;
     padding: .5em 1em;
+    font-family: var(--font-heading);
     font-size: 1.15em;
-    background-color: #F8FCFD;
+    background-color: var(--background);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  .tag:hover,
+  .tag:focus-visible {
+    background-color: var(--highlight);
+    color: var(--text);
   }
 </style>
