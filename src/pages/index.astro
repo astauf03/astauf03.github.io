@@ -1,9 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting';
-const pageTitle = "Home Page";
+const pageTitle = "Alexandra Stauffer";
 ---
 <BaseLayout pageTitle={pageTitle}>
-	<h2>My awesome blog subtitle</h2>
-	<Greeting client:load messages={["Hello there!", "안녕하세요", "こんにちは", "Bonjour"]} />
+	<section class="hero">
+		<div class="prose">
+			<h3>Aspiring anthropologist and urban spatial analyst</h3>
+			<p>Here is some filler so I can plan out this section</p>
+		</div>
+
+		<aside class="hero-side">
+			<a href="/about">
+				<img class="headshot" src="/images/personal/alex-tempshot.jpg" alt="Headshot of Alex" />
+			</a>
+
+			<a class="card-link card-link--feature" href="/posts/post01">
+				<span class="card-image-wrapper">
+					<img class="card-image" src="/images/projects/DAIR-header.png" alt="Screenshot of project" />
+				</span>
+				<span class="card-label">Project title <span class="card-arrow">→</span></span>
+				<p class="card-summary">One or two sentences about the project.</p>
+			</a>
+		</aside>
+	</section>
+	<Greeting client:load messages={["Hello there!", "안녕하세요", "こんにちは", "Bonjour", "大家好"]} />
 </BaseLayout>

@@ -92,14 +92,14 @@ h3{
 
 .nav-links a {
     display: block;
-    text-align: center;
-    padding: 8px 0;
+    text-align: justify;
+    padding: 9px 0;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     text-transform: uppercase;
     color: var(--text);
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 .nav-links a:hover,
@@ -246,7 +246,7 @@ footer a:hover {
 .card-link:hover .card-arrow,
 .card-link:focus-visible .card-arrow {
     transform: translateX(0.5rem);
-    color: var(--accent);
+    color: var(--highlight);
 }
 
 
@@ -256,7 +256,7 @@ footer a:hover {
     grid-column: 1 / -1;
 }
 
-.card-link--feature .card-thumbnail {
+.card-link--feature .card-image {
     aspect-ratio: 21/9;
 }
 
@@ -268,20 +268,21 @@ footer a:hover {
 .headshot {
     display:block;
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
     margin: 0 auto var(--spacing);
     aspect-ratio: 1;
-    object-fit: cover;
-    border-radius: 50%;
+    object-fit: contain;
+    border-radius: 30%;
 }
 
+/* commenting out for now
 @media screen and (min-width: 768px) {
     .headshot {
         float: left;
         margin: 0 var(--spacing) var(--spacing) 0;
     }
 }
-
+*/
 
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -305,9 +306,28 @@ a:focus-visible {
     text-decoration-color: var(--section);
 }
 
+/*These are the new styles for the homepage, i need a way to keep image and text in certain locations, while also making responsive to screensize */
+.hero {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+}
+
+.hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+}
+
+@media screen and (min-width: 768px) {
+    .hero {
+        grid-template-columns: minmax(0, 1fr) 18rem; /* text | right column */
+        align-items: start;
+    }
+}
+
 html.dark {
   background-color: #0d0950;
-  color: #fff;
+  color: var(--background);
 }
 
 .dark .menu {
