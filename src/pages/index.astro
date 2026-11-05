@@ -6,23 +6,23 @@ const pageTitle = "Alexandra Stauffer";
 <BaseLayout pageTitle={pageTitle}>
 	<section class="hero">
 		<div class="prose">
-			<h3>Aspiring anthropologist and urban spatial analyst</h3>
-			<p>Here is some filler so I can plan out this section</p>
+			<h2>Aspiring anthropologist and urban spatial analyst</h2>
+			<p> I am interested in the intersection of culture, langauge, and the spaces it occupies. I want to chase answers to how we can use geospatial technologies to better understand the human experience! </p>
+			<p>Currently I am collaborating with the Distributed AI Research Institute on a project about pharmacy deserts in the context of spatial apartheid. Check it out below!</p>
 		</div>
-
 		<aside class="hero-side">
 			<a href="/about">
 				<img class="headshot" src="/images/personal/alex-tempshot.jpg" alt="Headshot of Alex" />
-			</a>
-
-			<a class="card-link card-link--feature" href="/posts/post01">
+			</a>			
+		</aside>
+		<Greeting client:load messages={["Hello there!", "안녕하세요", "こんにちは", "Bonjour", "大家好"]} />
+		<a class="card-link card-link--feature" href="/posts/post01">
 				<span class="card-image-wrapper">
 					<img class="card-image" src="/images/projects/DAIR-header.png" alt="Screenshot of project" />
 				</span>
-				<span class="card-label">Project title <span class="card-arrow">→</span></span>
-				<p class="card-summary">One or two sentences about the project.</p>
+				<span class="card-label">Understanding Pharmacy Access in South Africa <span class="card-arrow">→</span></span>
+				<p class="card-summary">Check out my current research project with the Distributed AI Research Institute!</p>
 			</a>
-		</aside>
 	</section>
-	<Greeting client:load messages={["Hello there!", "안녕하세요", "こんにちは", "Bonjour", "大家好"]} />
+
 </BaseLayout>
