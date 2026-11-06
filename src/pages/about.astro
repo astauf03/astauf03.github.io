@@ -1,13 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
 
-const pageTitle = "About Me";
+const pageTitle = "About";
 
 const identity = {
-    firstName: "Alex",
+    firstName: "Alexandra",
+    nickName: "Alex",
     lastName: "Stauffer",
     country: "United States",
-    occupation: "Looking for opportunities in GIS and policy analysis",
+    occupation: "Looking for opportunities in GIS, policy, and digital humanities",
     hobbies: ["walking", "singing", "language learning", "traveling"]
 }
 
@@ -23,47 +25,59 @@ const skills = [
     "Academic Writing"
 ]
 
-const happy = true;
-const finished = true;
-const goal = 3;
+const education = [
+    {
+        degree: "Master of Science",
+        field: "Urban Spatial Analytics",
+        institution: "University of Pennsylvania",
+        year: 2026,
+        note: "One to two sentences about my experiences and where I am looking to go"
+    },
+    {
+        degree: "Bachelor of Arts",
+        field: "Anthropology",
+        institution: "Temple University",
+        year: 2024,
+        note: "One to two sentences about my experience",
+        studyAbroad: "I studied abroad in Japan for a semester at Temple University Japan Campus in Sangenjaya, Tokyo. I lived with a host family and took courses in Japanese langauge, literature, and my very first visual anthropology course!"
+    },
+    {
+        degree: "Applied Associate of Science",
+        field: "General Studies",
+        institution: "Harrisburg Area Community College",
+        year: 2022
+    }
+]
 
-const skillColor = "deeppink";
-const fontWeight = "bold";
-const textCase = "uppercase";
+const happy = false;
 
 import '../styles/global.css';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-     <style define:vars={{skillColor, fontWeight, textCase}}> 
-            h2 {
-                color: rgb(54, 18, 217);
-                font-size: 2rem;
-            } 
-            .skill {
-                color: var(--skillColor);
-                font-weight: var(--fontWeight);
-                text-transform: var(--textCase);
-            } 
-        </style>
-        <h2> ... and my new Astro site (that will be my portfolio)</h2>
-
+        <h2>This page is a work in progress...</h2>
         <h3>Here are a few facts about me:</h3>
-        <ul>
-            <li><strong>Name:</strong> {identity.firstName} {identity.lastName}</li>
+        <ul class="prose">
+            <li><strong>Name:</strong> {identity.firstName} {identity.lastName}, but you can call me {identity.nickName}</li>
             <li><strong>Country:</strong> {identity.country}</li>
             <li><strong>Occupation:</strong> {identity.occupation}</li>
+            <li><strong>Education:</strong></li>
+            <ul>
+                {education.map((edu) => (
+                    <li>{edu.degree} in <em>{edu.field}</em> from <strong>{edu.institution}</strong> ({edu.year}). {edu.note} {edu.studyAbroad && <span>{edu.studyAbroad}</span>}</li>
+                ))}
+            </ul>
         </ul>
 
         <h3>Skills</h3>
-        <ul>
+        <ul class="prose">
             {skills.map((skill) => (
                 <li class="skill">{skill}</li>
             ))}
         </ul>
 
         <h3>Hobbies</h3>
-        <ul>
+        <ul class="prose">
             {identity.hobbies.map((hobby) => (
                 <li>{hobby}</li>
             ))}
@@ -71,8 +85,5 @@ import '../styles/global.css';
 
         {happy && <p>I am happy to be learning Astro!</p>}
         
-        {finished && <p>I have finished learning Astro!</p>}
-
-        {goal === 3 ? <p>My goal is to finish in 3 days. </p> : <p>My goal is not to finish in 3 days.</p>}
         
 </BaseLayout>

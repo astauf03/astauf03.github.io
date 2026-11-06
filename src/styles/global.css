@@ -29,7 +29,7 @@ body {
 }
 
 .prose {                /*This controls the width of the text-heavy sections like About and Other*/
-    max-width: 65ch;
+    max-width: 55ch;
     line-height: 1.7;
     display: flow-root; /*for floating headshot integration*/
 }
