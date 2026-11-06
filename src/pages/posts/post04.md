@@ -7,7 +7,7 @@ image:
     src: /images/projects/pexels-muhammed-hanefi.jpg
     alt: "White car zooming off amongst blurry background."
 pubDate: Fall 2025
-tags: ["data analysis", "musa 5000: statistical and data mining methods"]
+tags: ["data analysis", "musa 5000 statistical and data mining methods"]
 ---
 ## Project Summary
 
