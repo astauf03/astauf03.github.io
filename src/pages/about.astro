@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoCard from '../components/PhotoCard.astro';
 import '../styles/global.css';
 
 const pageTitle = "About";
@@ -8,7 +9,7 @@ const identity = {
     firstName: "Alexandra",
     nickName: "Alex",
     lastName: "Stauffer",
-    country: "United States",
+    homeTown: "Lancaster County",
     occupation: "Looking for opportunities in GIS, policy, and digital humanities",
     hobbies: ["walking", "singing", "language learning", "traveling"]
 }
@@ -31,7 +32,20 @@ const education = [
         field: "Urban Spatial Analytics",
         institution: "University of Pennsylvania",
         year: 2026,
-        note: "One to two sentences about my experiences and where I am looking to go"
+        note: "I decided to attend a one-year master's program at the Weitzman School of Design to expand my methodological and technical skills in spatial analysis and GIS.",
+        note2: "During this time I held an internship at the City of Philadelphia's Managing Director's Office, Health and Human Services working on the Criminal Juvenile and Justice Debt Relief Program. My role was to assist in building an internal dashboard for management and program in-take.",
+        photos: [
+            {
+                src: "/images/personal/penn-grad.JPG",
+                alt: "A photo of me and three students whom I graduated with.",
+                summary: "Post-graduation photo with my lovely grad school friends!"
+            },
+            {
+                src: "/images/personal/penn-campus.jpg",
+                alt: "A photo of campus buildings at the University of Pennsylvania.",
+                summary: "A beautiful rainbow overseeing the University of Pennsylvania."
+            }
+        ]
     },
     {
         degree: "Bachelor of Arts",
@@ -39,7 +53,14 @@ const education = [
         institution: "Temple University",
         year: 2024,
         note: "One to two sentences about my experience",
-        studyAbroad: "I studied abroad in Japan for a semester at Temple University Japan Campus in Sangenjaya, Tokyo. I lived with a host family and took courses in Japanese langauge, literature, and my very first visual anthropology course!"
+        studyAbroad: "I studied abroad in Japan for a semester at Temple University Japan Campus in Sangenjaya, Tokyo. I lived with a host family and took courses in Japanese langauge, literature, and my very first visual anthropology course!",
+        photos: [
+            {
+                src: "/images/personal/temple-grad.jpg",
+                alt: "A photo of myself for my graduation from Temple University.",
+                summary: "Undergrad photoshoot!"
+            }
+        ]
     },
     {
         degree: "Applied Associate of Science",
@@ -49,27 +70,45 @@ const education = [
     }
 ]
 
-const happy = false;
-
 import '../styles/global.css';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-        <h2>This page is a work in progress...</h2>
-        <img class="prose" src="/images/personal/pose.png" alt="A photo of me at a club I work at in Philly" />
-        <h3>Here are a few facts about me:</h3>
-        <ul class="prose">
-            <li><strong>Name:</strong> {identity.firstName} {identity.lastName}, but you can call me {identity.nickName}</li>
-            <li><strong>Country:</strong> {identity.country}</li>
-            <li><strong>Occupation:</strong> {identity.occupation}</li>
-            <li><strong>Education:</strong></li>
-            <ul>
-                {education.map((edu) => (
-                    <li>{edu.degree} in <em>{edu.field}</em> from <strong>{edu.institution}</strong> ({edu.year}). {edu.note} {edu.studyAbroad && <span>{edu.studyAbroad}</span>}</li>
-                ))}
-            </ul>
-        </ul>
+        <h2>who i am</h2>
 
+    <section class="about-layout">
+        <div class="prose">
+            <h3>My Background</h3>
+            <p> I was born and raised in {identity.homeTown}, a <em>mostly</em> rural area in South-central Pennsylvania. </p>
+            <p> When I was 9 years old, my family hosted an exchange student from Japan. Ever since, I have been interested in language, culture, and travel. I got to reunite with my host sister in Tokyo in 2023. </p>
+            <p> It wasn't until <strong>{education[2].institution}</strong> that I was exposed to GIS and geospatial analysis. And now, I just graduated with a {education[0].degree} in {education[0].field} </p>
+        </div>
+        <div class="photo-grid">
+            <PhotoCard src="/images/personal/pose.png" alt="A photo of me at a club I work at in Philly" summary="This is a photo of me at a club I work at in Philly." />
+            <PhotoCard src="/images/personal/early-japan.jpg" alt="Photo at unknown temple" summary="Photo of me in Japan." />
+        </div>
+    </section>  
+    
+    <section class="edu-list">
+    <h2>Education</h2>
+    {education.map((edu) => (
+      <article class="edu-row">
+        <div class="prose">
+          <h3>{edu.institution}, {edu.year}</h3>
+          <p class="subtitle">{edu.degree} in {edu.field}</p>
+          <p>{edu.note}</p>
+          <p>{edu.note2}</p>
+          {edu.studyAbroad && <p class="study-abroad">{edu.studyAbroad}</p>}
+        </div>
+        {edu.photos && (
+          <div class="photo-grid">
+            {edu.photos.map((p) => <PhotoCard {...p} />)}
+          </div>
+        )}
+      </article>
+    ))}
+  </section>
+     <section>  
         <h3>Skills</h3>
         <ul class="prose">
             {skills.map((skill) => (
@@ -83,8 +122,41 @@ import '../styles/global.css';
                 <li>{hobby}</li>
             ))}
         </ul>
-
-        {happy && <p>I am happy to be learning Astro!</p>}
-        
-        
+    </section>
 </BaseLayout>
+
+<style>
+  .about-layout,
+  .edu-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+  .edu-row {
+    padding-block: 2rem;
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-content: start;
+  }
+  .photo-grid:has(.photo-card:only-child) {
+    grid-template-columns: 1fr;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  .study-abroad {
+    border-left: 2px solid currentColor;
+    padding-left: 1rem;
+  }
+  @media (max-width: 800px) {
+    .about-layout,
+    .edu-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
