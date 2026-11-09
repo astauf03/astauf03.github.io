@@ -10,7 +10,7 @@ const identity = {
     nickName: "Alex",
     lastName: "Stauffer",
     homeTown: "Lancaster County",
-    occupation: "Looking for opportunities in GIS, policy, and digital humanities",
+    occupation: "looking for opportunities in GIS, policy, and digital humanities",
     hobbies: ["walking", "singing", "language learning", "traveling"]
 }
 
@@ -33,7 +33,7 @@ const education = [
         institution: "University of Pennsylvania",
         year: 2026,
         note: "I decided to attend a one-year master's program at the Weitzman School of Design to expand my methodological and technical skills in spatial analysis and GIS.",
-        note2: "During this time I held an internship at the City of Philadelphia's Managing Director's Office, Health and Human Services working on the Criminal Juvenile and Justice Debt Relief Program. My role was to assist in building an internal dashboard for management and program in-take.",
+        note2: "During this time I held an internship at the City of Philadelphia's 'Managing Director's Office - Health and Human Services' working on the 'Criminal Juvenile and Justice Debt Relief Program'. My role was to assist in building an internal dashboard for management and program in-take.",
         photos: [
             {
                 src: "/images/personal/penn-grad.JPG",
@@ -52,13 +52,19 @@ const education = [
         field: "Anthropology",
         institution: "Temple University",
         year: 2024,
-        note: "One to two sentences about my experience",
-        studyAbroad: "I studied abroad in Japan for a semester at Temple University Japan Campus in Sangenjaya, Tokyo. I lived with a host family and took courses in Japanese langauge, literature, and my very first visual anthropology course!",
+        note: "I spent three semesters at Temple University. I was in the honors program and graduated with distinction. ",
+        note2: "During my short tenure, I worked as a librarian assistant at the 'Charles L. Blockson Afro-American Collection' and took on practicum work at the 'Temple Anthropology Laboratory and Museum (TALM)'. I was very lucky to be able to study abroad in Japan, read more about it below!  ",
+        studyAbroad: "I studied abroad in Japan for a semester at Temple University Japan Campus (テンプル大学ジャパンキャンパス) in Setagaya-ku, Tokyo. I lived with a host family in Machida（町田市） and took courses on the Japanese langauge, literature, and my very first visual anthropology course! I feel very lucky that I was able to have many profound experiences here and still was able to graduate on time. 日本に戻りたいです。また会えますよ。 ",
         photos: [
             {
                 src: "/images/personal/temple-grad.jpg",
                 alt: "A photo of myself for my graduation from Temple University.",
-                summary: "Undergrad photoshoot!"
+                summary: "Undergrad photoshoot for graduation!"
+            },
+            {
+                src: "/images/personal/temple-japan.jpg",
+                alt: "A photo of Temple Univerity Japan Campus",
+                summary: "Exterior of the Temple University Japan Campus."
             }
         ]
     },
@@ -66,7 +72,8 @@ const education = [
         degree: "Applied Associate of Science",
         field: "General Studies",
         institution: "Harrisburg Area Community College",
-        year: 2022
+        year: 2022,
+        note: "I went to community college during high school and finished in about a year and a half. Here I took anything from anthropology to meteorology, and of course GIS."
     }
 ]
 
@@ -74,18 +81,18 @@ import '../styles/global.css';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-        <h2>who i am</h2>
+    <h2>who i am</h2>
 
     <section class="about-layout">
         <div class="prose">
             <h3>My Background</h3>
             <p> I was born and raised in {identity.homeTown}, a <em>mostly</em> rural area in South-central Pennsylvania. </p>
             <p> When I was 9 years old, my family hosted an exchange student from Japan. Ever since, I have been interested in language, culture, and travel. I got to reunite with my host sister in Tokyo in 2023. </p>
-            <p> It wasn't until <strong>{education[2].institution}</strong> that I was exposed to GIS and geospatial analysis. And now, I just graduated with a {education[0].degree} in {education[0].field} </p>
+            <p> It wasn't until community college that I was exposed to GIS and geospatial analysis. I am interested in combining my love for language, culture, and geospatial technologies by <strong>{identity.occupation}</strong>.</p>
         </div>
         <div class="photo-grid">
-            <PhotoCard src="/images/personal/pose.png" alt="A photo of me at a club I work at in Philly" summary="This is a photo of me at a club I work at in Philly." />
-            <PhotoCard src="/images/personal/early-japan.jpg" alt="Photo at unknown temple" summary="Photo of me in Japan." />
+            <PhotoCard src="/images/personal/pose.png" alt="A photo of me at a club I work at in Philly" summary="A photo of me at a club I work at in Philly." />
+            <PhotoCard src="/images/personal/amtrak.jpg" alt="Photo of countryside with rail in the forefront" summary="Picture of rural PA from an Amtrak train to Lancaster." />
         </div>
     </section>  
     
@@ -98,7 +105,11 @@ import '../styles/global.css';
           <p class="subtitle">{edu.degree} in {edu.field}</p>
           <p>{edu.note}</p>
           <p>{edu.note2}</p>
-          {edu.studyAbroad && <p class="study-abroad">{edu.studyAbroad}</p>}
+          {edu.studyAbroad && (
+            <details class="study-abroad">
+                <summary>Study abroad experience</summary>
+                <p>{edu.studyAbroad}</p>
+            </details>)}
         </div>
         {edu.photos && (
           <div class="photo-grid">
@@ -109,17 +120,10 @@ import '../styles/global.css';
     ))}
   </section>
      <section>  
-        <h3>Skills</h3>
+        <h2>Skills</h2>
         <ul class="prose">
             {skills.map((skill) => (
                 <li class="skill">{skill}</li>
-            ))}
-        </ul>
-
-        <h3>Hobbies</h3>
-        <ul class="prose">
-            {identity.hobbies.map((hobby) => (
-                <li>{hobby}</li>
             ))}
         </ul>
     </section>
@@ -151,9 +155,30 @@ import '../styles/global.css';
   }
   .study-abroad {
     border-left: 2px solid currentColor;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
   }
-  @media (max-width: 800px) {
+  .study-abroad summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+  }
+  .study-abroad summary::before {
+    content: ">";
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.2s ease;
+  }
+  .study-abroad[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .study-abroad p {
+    margin-top: 0.75rem;
+    line-height: 1.6;
+  }
+
+@media (max-width: 800px) {
     .about-layout,
     .edu-row {
       grid-template-columns: 1fr;

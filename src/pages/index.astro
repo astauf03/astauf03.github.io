@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting';
+import PhotoCard from '../components/PhotoCard.astro';
 const pageTitle = "Alexandra Stauffer";
 ---
 <BaseLayout pageTitle={pageTitle}>
@@ -12,7 +13,7 @@ const pageTitle = "Alexandra Stauffer";
 		</div>
 		<aside class="hero-side">
 			<a href="/about">
-				<img class="headshot" src="/images/personal/walking.png" alt="Headshot of Alex" />
+				<PhotoCard class="headshot" src="/images/personal/walking.png" alt="Headshot of Alex" />
 			</a>			
 		</aside>
 		<Greeting client:load messages={["Hello there, how are you", "잘 지냈어요", "最近元気ですか。", "Comment allez-vous", "您好吗", "Wie geht es ihnen"]} />
