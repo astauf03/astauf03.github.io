@@ -1,15 +1,142 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoCard from '../components/PhotoCard.astro';
+import '../styles/global.css';
 
-const pageTitle = "Away from Work"
+
+const pageTitle = "After Hours"
+
 const hobbies = [
-    "singing",
-    "taking walks",
-    "langauge learning",
-    "traveling",
-    "making and playing music"
+    "Singing",
+    "Taking walks",
+    "Petting cats",
+    "Meeting new people",
+    "Language learning",
+    "Traveling",
+    "Making and playing music",
+    "Spending time with my lovely, wonderful friends"
 ]
+
+const music = [
+    {
+        activity: "marching band",
+        years: 7,
+        note: "For all seven years in marching band I played the sousaphone. I participated for five years in middle and high school, then did two years at Temple University Diamond Marching Band (TUDMB). In the TUDMB, we had dance breaks, and it was really fun to learn to dance. I sincerely miss these days so much.",
+        photos: [
+            {
+                src:"/images/personal/dance.webp",
+                alt: "TUDMB Members in Uniform",
+                summary: "Dance break!"
+            },
+            {
+                src: "images/personal/performance.webp",
+                alt: "Mid-performance at the Lincoln Financial Field",
+                summary: "Mid-performance at the Lincoln Financial Field"
+            }
+        ]
+    },
+    {
+        activity: "karaoke",
+        note: "I love to sing and sing everyday in my apartment. Still overcoming some of that stage fright."
+    },
+    {
+        activity: "pit orchestra",
+        note: "Performing in pit orchestra on tuba as a substitute for string base was amazing. My first ever show was 'The Pajama Game' and my last was 'The Wizard of Oz'. My favorite songs were 'Think of the Time I Save' and 'The Jitterbug' respectively."
+    }
+]
+
+const learn = [
+    {
+        language: "Mandarin",
+        years: "give or take 3",
+        method: "online in highschool and through a Mennonite church that received many Chinese international students. I feel embarrased to speak because I forget a lot, but I can text basic sentences and remember many grammar points.",
+        fluency: "HSK II with time for review. I switched languages in university and get things jumbled up."
+    },
+    {
+        language: "French",
+        years: 2,
+        method: "high school instruction simultaneously with German. I doubled up on STEM classes early on so I started languages later than most.",
+        fluency: "Je n'ai rein. J'ai oublié beaucoup de français. I found some discarded dictionaries off the city streets recently, so I have the means to review. ",
+        photos: {
+            src: "/images/personal/french-story.jpg",
+            alt: "An image of handwritten story in French",
+            summary: "A very short-story I wrote in high school about a boy named Ricky."
+        }
+    },
+    {
+        language: "German",
+        years: 2,
+        method: "high school instruction simultaneously with French. I wanted to be exposed to as many different languages as possible. Definetly the least retained language unfortunately. My mammaw spoke PA Dutch fluently, which is sort of like High German. I wish I studied it more seriously."
+    },
+    {
+        language: "Japanese",
+        years: 2,
+        method: "unviersity-level instruction. I took one semester of Japanese before I studied abroad in Tokyo. Immersion did wonders to my speaking level, but now it has been three years since I have spoken consistently. I feel more confident texting/sending messages. I am at an N4 level if I have a grammar review. "
+    },
+    {
+        language: "Korean",
+        years: "on-and-off for many years",
+        method: "1-on-1 private lessons for a little before I started high school. Everything else has been self-study."
+    }
+]
+
 ---
 <BaseLayout pageTitle={pageTitle}>
-
+    <section class="outside-layout">
+        <div class="prose">
+            <h2> Hobbies </h2>
+            <h3>Here are some of the things I that bring me unconditional joy!</h3>
+            <ul class="prose">
+            {hobbies.map((hobby) => (
+                <li class="skill">{hobby}</li>
+            ))}
+            </ul>
+        </div>
+        <div class="photo-grid">
+            <PhotoCard src = "/images/personal/gerald.jpg" alt = "Cat" summary = "Gerald the cat."/>
+            <PhotoCard src = "/images/personal/rosie.jpg" alt = "Cat, another one" summary = "Rosie the cat! Or.. is that a cow?" />
+        </div>
+    </section>
+    <section>
+        <div class="prose">
+            <h2>Favorite Performances</h2>
+        </div>
+        <div >
+        <iframe width="700" height="400" src="https://www.youtube.com/embed/GLYtsKyppIo?si=FolWYmphZO3ymSeK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
 </BaseLayout>
+
+<style>
+  .outside-layout,
+  .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+  .row {
+    padding-block: 2rem;
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-content: start;
+  }
+  .photo-grid:has(.photo-card:only-child) {
+    grid-template-columns: 1fr;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+@media (max-width: 800px) {
+    .outside-layout,
+    .row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+</style>
