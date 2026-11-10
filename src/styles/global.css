@@ -333,6 +333,38 @@ a:focus-visible {
     }
 }
 
+/* ended up moving here because the experience page needs a column-grid situation */
+.outside-layout,
+  .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+  .row {
+    padding-block: 2rem;
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-content: start;
+  }
+  .photo-grid:has(.photo-card:only-child) {
+    grid-template-columns: 1fr;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+@media (max-width: 800px) {
+    .outside-layout,
+    .row {
+      grid-template-columns: 1fr;
+    }
+  }
+
 
 html.dark {
   background-color: #0d0950;

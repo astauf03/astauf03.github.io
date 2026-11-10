@@ -1,0 +1,20 @@
+---
+const { url, title, summary, image, company, alt = "", feature = false } = Astro.props;
+const external = url.startsWith("http");
+---
+<a
+  class:list={["card-link", { "card-link--feature": feature }]}
+  href={url}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  {image && (
+    <span class="card-image-wrapper">
+      <img class="card-image" src={image.src} alt={alt} />
+    </span>
+  )}
+  <h2 class="card-label">{title}</h2>
+  <h3 class="card-label">{company}</h3>
+  {summary && <p class="card-summary">{summary}</p>}
+  <span class="card-arrow" aria-hidden="true">→</span>
+</a>

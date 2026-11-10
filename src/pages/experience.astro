@@ -1,8 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
+import JobPost from '../components/JobPost.astro';
+
+const allJobs = Object.values(import.meta.glob('./jobs/*.md', {eager: true}))
 const pageTitle = "Experience";
 ---
-
 <BaseLayout pageTitle={pageTitle}>
-    <p>This is the experience page.</p>
+    <div class="card-grid">
+        {allJobs.map((jobs: any) => <JobPost url={jobs.url} title={jobs.frontmatter.title} image={jobs.frontmatter.image} alt={jobs.frontmatter.image.alt} company={jobs.frontmatter.company} />)}
+    </div>
 </BaseLayout>

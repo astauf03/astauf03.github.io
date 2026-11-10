@@ -1,12 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
+const allJobs = Object.values(import.meta.glob('./jobs/*.md', {eager: true}));
 const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
+const tags2 = [...new Set(allJobs.map((job: any) => job.frontmatter.tags).flat())]
 const pageTitle = "Tag Index";
 ---
 <BaseLayout pageTitle={pageTitle}>
   <div class="tags">
     {tags.map((tag) => (
+      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+    ))}
+  </div>
+    <div class="tags">
+    {tags2.map((tag) => (
       <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
     ))}
   </div>

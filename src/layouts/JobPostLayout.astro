@@ -1,0 +1,52 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+<BaseLayout pageTitle={frontmatter.title}>
+  <section>
+    <div class ="prose">
+  <h2>{frontmatter.company}</h2>
+  <h3>{frontmatter.department}</h3>
+  <h3>{frontmatter.pubDate.toString().slice(0,20)}</h3>
+  <p>Collaborators: {frontmatter.author}</p>
+  </div>
+  </section>
+
+
+  <img src={frontmatter.image.src} width="1000" alt={frontmatter.image.alt} />
+
+  <div class="tags">
+    {frontmatter.tags.map((tag: string) => (
+      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+    ))}
+  </div>
+
+  <slot />
+</BaseLayout>
+<style>
+  a {
+    color: var(--accent);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px var(--accent);
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-family: var(--font-heading);
+    font-size: 1.15em;
+    background-color: var(--background);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  .tag:hover,
+  .tag:focus-visible {
+    background-color: var(--highlight);
+    color: var(--text);
+  }
+</style>
