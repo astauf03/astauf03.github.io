@@ -3,10 +3,11 @@ const { platform, username } = Astro.props;
 ---
 <a href={`https://www.${platform}.com/${username}`}>{platform}</a>
 <a href={`https://www.${platform}.com/in/${username}`}>LinkedIn</a>
+<a href="mailto:astauf03@gmail.com">Email</a>
 
 <style>
     a {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 1.5rem;
         color:whitesmoke;
         background-color: var(--accent);
         text-decoration: none;
