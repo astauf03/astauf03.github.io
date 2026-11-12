@@ -4,7 +4,7 @@ const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={frontmatter.title}>
   <section>
-    <div class ="prose">
+    <div>
   <h2>{frontmatter.company}</h2>
   <h3>{frontmatter.department}</h3>
   <h3>{frontmatter.pubDate.toString().slice(0,20)}</h3>
@@ -12,8 +12,9 @@ const { frontmatter } = Astro.props;
   </div>
   </section>
 
-
-  <img src={frontmatter.image.src} width="1000" alt={frontmatter.image.alt} />
+  <div class=".photo-grid:has(.photo-card:only-child)">
+  <img src={frontmatter.image.src} width="200" alt={frontmatter.image.alt} />
+  </div>
 
   <div class="tags">
     {frontmatter.tags.map((tag: string) => (

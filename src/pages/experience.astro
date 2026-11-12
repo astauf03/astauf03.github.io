@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BlogPost from '../components/BlogPost.astro';
 import JobPost from '../components/JobPost.astro';
 
 const allJobs = Object.values(import.meta.glob('./jobs/*.md', {eager: true}))

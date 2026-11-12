@@ -1,5 +1,5 @@
 ---
-const { url, title, summary, image, company, alt = "", feature = false } = Astro.props;
+const { url, title, summary, image, company, pubDate, alt = "", feature = false } = Astro.props;
 const external = url.startsWith("http");
 ---
 <a
@@ -13,8 +13,18 @@ const external = url.startsWith("http");
       <img class="card-image" src={image.src} alt={alt} />
     </span>
   )}
-  <h2 class="card-label">{title}</h2>
-  <h3 class="card-label">{company}</h3>
+  <h3 class="card-job">{title}</h3>
+  <h4 class="card-job">{company}</h4>
+  <h3 class="card-job">{pubDate}</h3>
   {summary && <p class="card-summary">{summary}</p>}
   <span class="card-arrow" aria-hidden="true">→</span>
 </a>
+
+<style>
+  .card-job {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-clamp: 1;
+}
+ 
+</style>

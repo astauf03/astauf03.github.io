@@ -10,5 +10,5 @@ description: "..."
 image:
     src: /images/
     alt: 'DAIR Logo'
-tags: ["testing"]
+tags: ["testing", "consulting"]
 ---

@@ -7,11 +7,20 @@ department: "Managing Director's Office - Health and Human Services (MDO-HHS)"
 pubDate: Jan 2026 - May 2026
 description: "..."
 image:
-    src: /images/
+    src: /images/jobs/logo-city-of-philadelphia-bell.png
     alt: 'City of Philadelphia Logo'
 tags: ["testing"]
 ---
 
 ## Description
 
-In 2024, 30 years after the end of apartheid, the government of South Africa signed into law a National Health Insurance (NHI) Act of 2024. The NHI was developed to extend healthcare coverage to uninsured South Africans who could only receive care at often overcrowded public health facilities.
+1. Served as a liaison between tehcnical and program staff, translating dashboard updates and pipline changes to audiences with varying levels of data literacy.
+
+2. Developed ArcGIS dashboards after cleaning over 600,000 cells of excel data in R to track program metrics:
+- case volume
+- referral sources
+- expenditures
+
+3. Redesigned the *Philly Phlush Map* to showcase demographic metrics against Sharpe dropboxes and other public restroom facilities. 
+
+
