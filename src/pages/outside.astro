@@ -19,8 +19,8 @@ const hobbies = [
 
 const music = [
     {
-        activity: "marching band",
-        years: 7,
+        activity: "Marching Band",
+        years: "7 years",
         note: "For all seven years in marching band I played the sousaphone. I participated for five years in middle and high school, then did two years at Temple University Diamond Marching Band (TUDMB). In the TUDMB, we had dance breaks, and it was really fun to learn to dance. I sincerely miss these days so much.",
         photos: [
             {
@@ -29,18 +29,19 @@ const music = [
                 summary: "Dance break!"
             },
             {
-                src: "images/personal/performance.webp",
-                alt: "Mid-performance at the Lincoln Financial Field",
+                src: "/images/personal/performance.webp",
+                alt: "Alex playing the tuba on the Lincoln Financial Field",
                 summary: "Mid-performance at the Lincoln Financial Field"
             }
         ]
     },
     {
-        activity: "karaoke",
-        note: "I love to sing and sing everyday in my apartment. Still overcoming some of that stage fright."
+        activity: "Concert Band",
+        years: "9 years",
+        note: "From fifth grade until post-grad I performed in some sort of wind ensemble on tuba, trombone, baritone, trumpet, or flute."
     },
     {
-        activity: "pit orchestra",
+        activity: "Pit Orchestra",
         note: "Performing in pit orchestra on tuba as a substitute for string base was amazing. My first ever show was 'The Pajama Game' and my last was 'The Wizard of Oz'. My favorite songs were 'Think of the Time I Save' and 'The Jitterbug' respectively."
     }
 ]
@@ -48,15 +49,15 @@ const music = [
 const learn = [
     {
         language: "Mandarin",
-        years: "give or take 3",
-        method: "online in highschool and through a Mennonite church that received many Chinese international students. I feel embarrased to speak because I forget a lot, but I can text basic sentences and remember many grammar points.",
+        years: "~ 3 years",
+        method: "I studied online in highschool and through a Mennonite church that received many Chinese international students. I can text basic sentences and remember many grammar points. Speaking requires more  effort.",
         fluency: "HSK II with time for review. I switched languages in university and get things jumbled up."
     },
     {
         language: "French",
-        years: 2,
+        years: "2 years",
         method: "high school instruction simultaneously with German. I doubled up on STEM classes early on so I started languages later than most.",
-        fluency: "Je n'ai rein. J'ai oublié beaucoup de français. I found some discarded dictionaries off the city streets recently, so I have the means to review. ",
+        fluency: "Je n'ai rein. J'ai oublié tout de français, mais A2 ",
         photos: {
             src: "/images/personal/french-story.jpg",
             alt: "An image of handwritten story in French",
@@ -65,13 +66,15 @@ const learn = [
     },
     {
         language: "German",
-        years: 2,
-        method: "high school instruction simultaneously with French. I wanted to be exposed to as many different languages as possible. Definetly the least retained language unfortunately. My mammaw spoke PA Dutch fluently, which is sort of like High German. I wish I studied it more seriously."
+        years: "2 years",
+        method: "high school instruction simultaneously with French. I wanted to be exposed to as many different languages as possible. Definetly the least retained language unfortunately. My mammaw spoke PA Dutch fluently, which is sort of like High German. I wish I studied it more seriously.",
+        fluency: "A1"
     },
     {
         language: "Japanese",
-        years: 2,
-        method: "unviersity-level instruction. I took one semester of Japanese before I studied abroad in Tokyo. Immersion did wonders to my speaking level, but now it has been three years since I have spoken consistently. I feel more confident texting/sending messages. I am at an N4 level if I have a grammar review. "
+        years: "2 years",
+        method: "unviersity-level instruction. I took one semester of Japanese before I studied abroad in Tokyo. Immersion did wonders to my speaking level, but now it has been three years since I have spoken consistently. I feel more confident texting/sending messages.",
+        fluency: "N4"
     },
     {
         language: "Korean",
@@ -97,6 +100,34 @@ const learn = [
             <PhotoCard src = "/images/personal/rosie.jpg" alt = "Cat, another one" summary = "Rosie the cat! Or.. is that a cow?" />
         </div>
     </section>
+   <section class="edu-list">
+    <h2>Music</h2>
+    {music.map((music) => (
+      <article class="row">
+        <div class="prose">
+          <h3>{music.activity}, {music.years}</h3>
+          <p>{music.note}</p>
+        </div>
+        {music.photos && (
+          <div class="photo-grid">
+            {music.photos.map((p) => <PhotoCard {...p} />)}
+          </div>
+        )}
+      </article>
+    ))}
+  </section>
+     <section class="edu-list">
+    <h2>Language Learning</h2>
+    {learn.map((learn) => (
+      <article class="row">
+        <div class="prose">
+          <h3>{learn.language}, {learn.years}</h3>
+          <p>{learn.method}</p>
+          <p><strong>{learn.fluency}</strong></p>
+        </div>
+      </article>
+    ))}
+  </section>
     <section>
         <div class="prose">
             <h2>Favorite Performances</h2>
